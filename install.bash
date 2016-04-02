@@ -2,8 +2,9 @@
 
 # In User Data do: 
 
+# #!/bin/bash
 # export CF_TOKEN=...
-# curl https://raw.githubusercontent.com/calebdoxsey/aws-machine/master/install.bash | /bin/bash
+# curl https://raw.githubusercontent.com/calebdoxsey/cloud-machine/master/install.bash | /bin/bash
 
 apt-get update
 apt-get install -y curl git gcc
@@ -11,7 +12,7 @@ apt-get install -y curl git gcc
 # ==========
 # update DNS
 # ==========
-CF_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
+CF_IP=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip" -H "Metadata-Flavor: Google")
 CF_EMAIL=caleb@doxsey.net
 CF_ZONE=030188de42fc070c97e66dbed6277be3
 CF_ID=dbb50b76fb8cfa1d55ccc43326385a2e
