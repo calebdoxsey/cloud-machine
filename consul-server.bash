@@ -6,7 +6,7 @@
 # export ATLAS_USERNAME=...
 # export ATLAS_TOKEN=...
 # export CONSUL_VERSION=0.7.5
-# curl https://raw.githubusercontent.com/calebdoxsey/cloud-machine/master/consul-server.bash | /bin/bash
+# curl https://raw.githubusercontent.com/calebdoxsey/cloud-machine/master/consul-server.bash | sudo -E /bin/bash
 
 if [[ $EUID -ne 0 ]]; then
   echo "This script must be run as root"
@@ -30,6 +30,7 @@ fi
 
 apt-get install -y curl unzip
 
+echo "[install] installing consul"
 cd /tmp
 curl -O -L https://releases.hashicorp.com/consul/$CONSUL_VERSION/consul_${CONSUL_VERSION}_linux_amd64.zip
 unzip consul_${CONSUL_VERSION}_linux_amd64.zip
@@ -53,6 +54,7 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
+echo "[install] starting consul"
 systemctl daemon-reload 
 systemctl enable consul
 systemctl start consul
