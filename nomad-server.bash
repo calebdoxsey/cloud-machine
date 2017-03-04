@@ -24,7 +24,9 @@ mv nomad /usr/bin/nomad
 rm nomad_${NOMAD_VERSION}_linux_amd64.zip
 
 mkdir -p /etc/nomad
+mkdir -p /var/lib/nomad
 cat <<EOF > /etc/nomad/server.hcl
+data_dir  = "/var/lib/nomad"
 server {
   enabled          = true
   bootstrap_expect = 3
