@@ -23,6 +23,7 @@ unzip nomad_${NOMAD_VERSION}_linux_amd64.zip
 mv nomad /usr/bin/nomad
 rm nomad_${NOMAD_VERSION}_linux_amd64.zip
 
+mkdir -p /etc/nomad
 cat <<EOF > /etc/nomad/server.hcl
 server {
   enabled          = true
