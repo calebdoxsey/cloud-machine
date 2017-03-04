@@ -29,7 +29,7 @@ server {
   enabled          = true
   bootstrap_expect = 3
 }
-EOF 
+EOF
 
 cat <<EOF > /etc/systemd/system/nomad.service
 [Unit]
