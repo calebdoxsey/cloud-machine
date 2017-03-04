@@ -30,7 +30,7 @@ server {
 }
 EOF 
 
-cat <<EOF > /etc/systemd/system/consul.service
+cat <<EOF > /etc/systemd/system/nomad.service
 [Unit]
 Description=Nomad
 Documentation=https://nomadproject.io/docs/
