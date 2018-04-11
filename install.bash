@@ -6,6 +6,8 @@
 # export CF_TOKEN=...
 # curl https://raw.githubusercontent.com/calebdoxsey/cloud-machine/master/install.bash | /bin/bash
 
+set -euxo pipefail
+
 apt-get update
 apt-get install -y curl git gcc
 
