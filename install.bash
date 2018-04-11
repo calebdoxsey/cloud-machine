@@ -56,8 +56,10 @@ fi
 # ======================
 # install badgerodon/www
 # ======================
-go get -x -u -d github.com/badgerodon/www
-go build -x -i -o /usr/local/bin/badgerodon-www github.com/badgerodon/www
+if [ ! -f "/usr/local/bin/badgerodon-www" ] ; then 
+  go get -x -u -d github.com/badgerodon/www
+  go build -x -i -o /usr/local/bin/badgerodon-www github.com/badgerodon/www
+fi
 cat << EOF > /etc/systemd/system/badgerodon-www.service
 [Unit]
 Description=badgerodon-www
