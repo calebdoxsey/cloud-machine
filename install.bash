@@ -15,7 +15,7 @@ apt-get install -y curl git gcc
 CF_IP=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip" -H "Metadata-Flavor: Google")
 CF_EMAIL=caleb@doxsey.net
 CF_ZONE=030188de42fc070c97e66dbed6277be3
-CF_ID=dbb50b76fb8cfa1d55ccc43326385a2e
+CF_ID=1e74cdca0366096d1e779a3ef130be42
 
 curl -X PUT "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/dns_records/$CF_ID" \
   -H "X-Auth-Email: $CF_EMAIL" \
