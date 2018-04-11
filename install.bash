@@ -40,18 +40,15 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/dns_records/$CF
 # install Go
 # ==========
 export GOPATH=/usr/local
-go version
-if [ "$?" -ne 0 ] ; then
-	export PATH=$PATH:/usr/local/go/bin
-fi
-if [ "$(go version)" != "go version go1.6 linux/amd64" ] ; then
+if [ ! -f "/usr/local/go/bin/go" ] ; then
 	pushd /usr/local
 
 	rm -rf go
-	curl -L https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz | tar -xz
+	curl -L https://storage.googleapis.com/golang/go1.10.linux-amd64.tar.gz | tar -xz
 
 	popd
 fi
+export PATH=$PATH:/usr/local/go/bin
 
 # ======================
 # install badgerodon/www
